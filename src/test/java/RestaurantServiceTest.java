@@ -71,9 +71,16 @@ class RestaurantServiceTest {
        itemsSelected.add("Sweet corn soup");
        itemsSelected.add("Vegetable lasagne");
 
-       int totalAmount = service.calculateTotalAmount(itemsSelected);
-            
+       int totalAmount = restaurant.calculateTotalAmount(itemsSelected);          
+        assertEquals(388, totalAmount);
+    }
 
+    @Test
+    public void calculate_total_price_with_empty_list_should_return_0(){
+        List<String> itemsSelected = new ArrayList<String>();
+
+        int totalAmount = restaurant.calculateTotalAmount(itemsSelected);          
+        assertEquals(0, totalAmount);
     }
 
 
